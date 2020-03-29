@@ -11,10 +11,6 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status', (req, res) => {
-  res.send({
-    message: 'The server is up and running'
-  })
-})
+require('./routes')(app)
 
 app.listen(config.port)
