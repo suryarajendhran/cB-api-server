@@ -1,13 +1,13 @@
 module.exports = {
   port: process.env.PORT || 8081,
   db: {
-    database: process.env.DB_NAME || 'fashionblog',
-    user: process.env.DB_USER || 'fashionblog',
-    password: process.env.DB_PASS || 'swoonz101',
+    database: process.env.DB_NAME || 'clean_books',
+    user: process.env.DB_USER || 'clean_books_app',
+    password: process.env.DB_PASS || 'testAdmin',
     options: {
       dialect: process.env.DIALECT || 'sqlite',
       host: process.env.HOST || 'localhost',
-      storage: './fashionblog.sqlite'
+      storage: './cleanBooks.sqlite'
     }
   }
 }
