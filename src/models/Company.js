@@ -1,5 +1,5 @@
-module.exports = (sequelize, DataTypes) =>
-  sequelize.define('Company', {
+module.exports = (sequelize, DataTypes) => {
+  var Company = sequelize.define('Company', {
     name: {
       type: DataTypes.STRING,
       unique: true
@@ -22,3 +22,10 @@ module.exports = (sequelize, DataTypes) =>
     },
     registration_number: DataTypes.STRING
   })
+
+  Company.associate = function (models) {
+    Company.hasMany(models.Partner)
+  }
+
+  return Company
+}
