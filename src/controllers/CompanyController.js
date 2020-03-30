@@ -10,8 +10,5 @@ module.exports = {
         error: 'Error while creating company'
       })
     }
-    res.send({
-      message: `${req.body.name} was successfully registered!`
-    })
   }
 }

@@ -17,6 +17,8 @@ module.exports = (sequelize, DataTypes) =>
       type: DataTypes.STRING,
       unique: true
     },
-    date_of_formation: DataTypes.DATEONLY,
+    date_of_formation: {
+      type: DataTypes.DATE
+    },
     registration_number: DataTypes.STRING
   })
