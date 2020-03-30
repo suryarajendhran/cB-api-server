@@ -14,13 +14,16 @@ module.exports = (app) => {
     CompanyController.get_companies
   )
   app.post('/companies',
-    CompanyControllerPolicy.register_company,
-    CompanyController.register_company
+    CompanyControllerPolicy.add_company,
+    CompanyController.add_company
   )
   // TODO: Remove company_id or make it work
   app.post('/:company_id/partner',
     PartnerControllerPolicy.register_partner,
     PartnerController.register_partner
+  )
+  app.put('/companies',
+    CompanyController.update_companies
   )
   app.post('/capital',
     CapitalController.add_capital

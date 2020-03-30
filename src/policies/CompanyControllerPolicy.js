@@ -13,7 +13,7 @@ const state = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam',
   'Delhi', 'Lakshadweep', 'Puducherry']
 
 module.exports = {
-  register_company (req, res, next) {
+  add_company (req, res, next) {
     const dateIn = req.body.date_of_formation
     req.body.date_of_formation = new Date(dateIn)
     const schema = {
