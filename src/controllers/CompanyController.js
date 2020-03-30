@@ -14,7 +14,7 @@ module.exports = {
   },
   async get_companies (req, res) {
     const companies = await Company.findAll({
-      include: [models.Partner]
+      include: [models.Partner, models.Capital]
     })
     res.send({ companies })
   }
