@@ -16,7 +16,18 @@ module.exports = {
   // CRUD: R
   async get_companies (req, res) {
     const companies = await Company.findAll({
-      include: [models.Partner, models.Capital]
+      include: [{
+        model: models.Partner, as: 'Partners'
+      },
+      {
+        model: models.Capital, as: 'Capitals'
+      },
+      {
+        model: models.TransactionAccount, as: 'Transaction Accounts'
+      },
+      {
+        model: models.Transaction, as: 'Transactions'
+      }]
     })
     res.send({ companies })
   },
