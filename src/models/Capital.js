@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   var Capital = sequelize.define('Capital', {
     amount: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.REAL,
       allowNull: false
     }
   })

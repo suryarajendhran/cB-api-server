@@ -24,8 +24,10 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Company.associate = function (models) {
-    Company.hasMany(models.Partner)
-    Company.hasMany(models.Capital)
+    models.Company.hasMany(models.Partner, { as: 'Partners' })
+    models.Company.hasMany(models.Capital, { as: 'Capital' })
+    models.Company.hasMany(models.TransactionAccount, { as: 'TransactionAccounts' })
+    models.Company.hasMany(models.Transaction, { as: 'Transactions' })
   }
 
   return Company

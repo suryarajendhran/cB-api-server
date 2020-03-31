@@ -18,8 +18,12 @@ fs
     file !== 'index.js'
   )
   .forEach((file) => {
-    const model = sequelize.import(path.join(__dirname, file))
-    db[model.name] = model
+    try {
+      const model = sequelize.import(path.join(__dirname, file))
+      db[model.name] = model
+    } catch (err) {
+      console.log(`Error with file: ${file}`)
+    }
   })
 
 Object.keys(db).forEach(modelName => {

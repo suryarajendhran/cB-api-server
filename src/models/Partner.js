@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true
     },
+    opening_balance: DataTypes.REAL,
     date_of_birth: {
       type: DataTypes.DATE
     },

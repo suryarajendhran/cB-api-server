@@ -3,7 +3,8 @@ const CompanyControllerPolicy = require('./policies/CompanyControllerPolicy')
 const PartnerController = require('./controllers/PartnerController')
 const PartnerControllerPolicy = require('./policies/PartnerControllerPolicy')
 const CapitalController = require('./controllers/CapitalController')
-
+const TransactionAccountController = require('./controllers/TransactionAccountController')
+const TransactionController = require('./controllers/TransactionController')
 module.exports = (app) => {
   app.get('/status', (req, res) => {
     res.send({
@@ -27,5 +28,11 @@ module.exports = (app) => {
   )
   app.post('/capital',
     CapitalController.add_capital
+  )
+  app.post('/transaction_account',
+    TransactionAccountController.add_transaction_account
+  )
+  app.post('/transaction',
+    TransactionController.add_transaction
   )
 }
