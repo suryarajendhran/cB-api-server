@@ -14,6 +14,9 @@ module.exports = (app) => {
   app.get('/companies',
     CompanyController.get_companies
   )
+  app.post('/company',
+    CompanyController.get_company
+  )
   app.post('/companies',
     CompanyControllerPolicy.add_company,
     CompanyController.add_company

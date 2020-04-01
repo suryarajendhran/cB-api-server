@@ -31,6 +31,35 @@ module.exports = {
     })
     res.send({ companies })
   },
+  // CRUD: R (SPECIFIC)
+  async get_company (req, res) {
+    try {
+      const body = req.body
+      const company = await Company.findOne({
+        where: body,
+        include: [{
+          model: models.Partner, as: 'Partners'
+        },
+        {
+          model: models.Capital, as: 'Capitals'
+        },
+        {
+          model: models.TransactionAccount, as: 'Transaction Accounts'
+        },
+        {
+          model: models.Transaction, as: 'Transactions'
+        }]
+      })
+      if (company === null) {
+        res.send('Company not found')
+      }
+      res.send(company)
+    } catch (err) {
+      res.status(400).send({
+        error: `Error while retreiving company: ${err}`
+      })
+    }
+  },
   // CRUD: U
   // request format: { updates: { "name": "Swoonz", "amount": "785"}, "id": "2"}
   async update_companies (req, res) {
