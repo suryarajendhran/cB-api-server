@@ -6,7 +6,22 @@ module.exports = {
     try {
       const transaction = await Transaction.create(req.body)
       const transactionAccount = await TransactionAccount.findByPk(transaction.TransactionAccountId)
-      const finalBalance = transactionAccount.balance - transaction.amount
+      var finalBalance = 0
+      if (transaction.type === 'debt') {
+        console.log('Debt operation, amount:')
+        console.log(transaction.amount)
+        finalBalance = transactionAccount.balance - transaction.amount
+      } else if (transaction.type === 'credit') {
+        console.log('Credit operation, amount:')
+        console.log(transaction.amount)
+        finalBalance = parseFloat(transactionAccount.balance) + parseFloat(transaction.amount)
+      } else {
+        finalBalance = transactionAccount.balance
+        res.status(400).send({
+          error: `Incorrect transaction type: ${transaction.type}`
+        })
+      }
+      console.log(`Final amount is ${finalBalance}`)
       await TransactionAccount.update(
         { balance: finalBalance },
         { where: { id: transactionAccount.id } }
