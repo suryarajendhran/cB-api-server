@@ -65,8 +65,6 @@ module.exports = {
   async update_companies (req, res) {
     const updates = req.body.updates
     const key = req.body.id
-    console.log(updates)
-    console.log(key)
     await Company.update(
       updates,
       { where: { id: key } }
@@ -78,4 +76,6 @@ module.exports = {
       })
     })
   }
+  // TODO:
+  // CRUD: D
 }

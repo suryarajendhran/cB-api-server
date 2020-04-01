@@ -5,6 +5,8 @@ const PartnerControllerPolicy = require('./policies/PartnerControllerPolicy')
 const CapitalController = require('./controllers/CapitalController')
 const TransactionAccountController = require('./controllers/TransactionAccountController')
 const TransactionController = require('./controllers/TransactionController')
+const CommodityController = require('./controllers/CommodityController')
+
 module.exports = (app) => {
   app.get('/status', (req, res) => {
     res.send({
@@ -37,5 +39,14 @@ module.exports = (app) => {
   )
   app.post('/transaction',
     TransactionController.add_transaction
+  )
+  app.get('/commodity',
+    CommodityController.get_commodities
+  )
+  app.post('/commodity',
+    CommodityController.add_commodity
+  )
+  app.put('/commodity',
+    CommodityController.update_commodity
   )
 }
