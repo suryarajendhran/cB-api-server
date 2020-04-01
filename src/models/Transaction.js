@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+  // TODO: Track balance history for each transaction
   var Transaction = sequelize.define('Transaction', {
     description: DataTypes.STRING,
     type: DataTypes.STRING,
