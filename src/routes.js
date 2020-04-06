@@ -9,6 +9,7 @@ const CommodityController = require('./controllers/CommodityController')
 
 module.exports = (app) => {
   app.get('/status', (req, res) => {
+    console.log('API Hit!')
     res.send({
       message: 'The server is up and running'
     })
@@ -24,7 +25,7 @@ module.exports = (app) => {
     CompanyController.add_company
   )
   // TODO: Remove company_id or make it work
-  app.post('/:company_id/partner',
+  app.post('/partner',
     PartnerControllerPolicy.register_partner,
     PartnerController.register_partner
   )
