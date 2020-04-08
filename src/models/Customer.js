@@ -1,11 +1,15 @@
 
 module.exports = (sequelize, DataTypes) => {
   var Customer = sequelize.define('Customer', {
-    name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      unique: true
+    },
     address: DataTypes.STRING(1234),
     pin: DataTypes.STRING,
     state: DataTypes.STRING,
-    gstin: DataTypes.STRING
+    gstin: DataTypes.STRING,
+    balance: DataTypes.REAL
   })
 
   Customer.associate = function (models) {

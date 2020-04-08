@@ -6,6 +6,7 @@ const CapitalController = require('./controllers/CapitalController')
 const TransactionAccountController = require('./controllers/TransactionAccountController')
 const TransactionController = require('./controllers/TransactionController')
 const CommodityController = require('./controllers/CommodityController')
+const CustomerController = require('./controllers/CustomerController')
 
 module.exports = (app) => {
   app.get('/status', (req, res) => {
@@ -49,5 +50,8 @@ module.exports = (app) => {
   )
   app.put('/commodity',
     CommodityController.update_commodity
+  )
+  app.post('/customer',
+    CustomerController.register_customer
   )
 }

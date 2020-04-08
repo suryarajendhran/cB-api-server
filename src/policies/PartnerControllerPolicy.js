@@ -26,7 +26,7 @@ module.exports = {
       address: Joi.string().required(),
       profit_ratio: Joi.string().required(),
       date_of_admission: Joi.date().required(),
-      date_of_retirement: Joi.date().required(),
+      date_of_retirement: Joi.date(),
       CompanyId: Joi.date().required()
     }
     const { error } = Joi.validate(req.body, schema)
